@@ -1,0 +1,20 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CC0000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#grad2)" />
+  <g transform="translate(100, 100)">
+    <!-- Fire/Flame Icon -->
+    <path d="M 0,-40 C -15,-30 -20,-15 -15,0 C -10,15 5,25 20,20 C 30,15 35,0 30,-15 C 25,-30 10,-40 0,-40 Z" fill="#FFD700" opacity="0.9"/>
+    <path d="M 0,-35 C -10,-25 -12,-12 -8,2 C -5,12 5,18 15,15 C 22,12 25,2 22,-10 C 18,-22 8,-35 0,-35 Z" fill="#FFF" opacity="0.8"/>
+    <path d="M 0,-30 C -5,-22 -6,-12 -3,0 C -1,8 5,12 10,10 C 15,8 17,0 15,-8 C 12,-18 5,-30 0,-30 Z" fill="#FF6600" opacity="0.9"/>
+    <!-- WiFi Waves -->
+    <path d="M -40,-10 Q -30,-20 -20,-10" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M 40,-10 Q 30,-20 20,-10" stroke="white" stroke-width="3" fill="none" opacity="0.7"/>
+    <circle cx="0" cy="30" r="8" fill="white" opacity="0.9"/>
+  </g>
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">POPULAR</text>
+</svg>
