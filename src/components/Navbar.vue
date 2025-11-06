@@ -45,13 +45,15 @@ export default {
 
 <style scoped>
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 1rem 0;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(220, 20, 60, 0.1);
 }
 
 .nav-content {
@@ -91,6 +93,8 @@ export default {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 20px rgba(220, 20, 60, 0.2);
 }
 
 .wifi-text {
@@ -98,6 +102,7 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: 2px 2px 20px rgba(0, 102, 204, 0.2);
 }
 
 .nav-links {
@@ -137,6 +142,10 @@ export default {
 .nav-btn {
   padding: 10px 25px;
   font-size: 14px;
+  animation: glow 3s ease-in-out infinite;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .mobile-menu-btn {
