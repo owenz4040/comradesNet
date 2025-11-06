@@ -27,6 +27,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-anchor: none;
+}
+
+html.loading {
+  scroll-behavior: auto !important;
 }
 
 body {
@@ -36,6 +41,17 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-anchor: none;
+}
+
+/* Prevent auto-scroll on initial load */
+body.loading {
+  overflow: hidden;
+}
+
+#app.loading {
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {

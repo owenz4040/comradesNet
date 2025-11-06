@@ -18,13 +18,21 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
-    // Always scroll to top on route change
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0, behavior: 'smooth' }
-    }
+    // Always scroll to top - force it
+    return { top: 0, left: 0, behavior: 'instant' }
   }
+})
+
+// Prevent browser scroll restoration
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
+// Force scroll to top on page load
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0)
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
 })
 
 createApp(App).use(router).mount('#app')

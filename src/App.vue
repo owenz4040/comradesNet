@@ -26,18 +26,48 @@ export default {
       showSplash: true
     }
   },
+  created() {
+    // Force scroll to top immediately
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    }
+  },
   mounted() {
     // Ensure page starts at top
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
     
     // Hide splash screen after 3 seconds
     setTimeout(() => {
       this.showSplash = false
-      // Scroll to top after splash screen
+      // Multiple attempts to scroll to top
+      setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
+      }, 0)
+      
       this.$nextTick(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
       })
     }, 3000)
+  },
+  watch: {
+    showSplash(newVal) {
+      if (!newVal) {
+        // When splash screen hides, force scroll to top
+        this.$nextTick(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+          document.documentElement.scrollTop = 0
+          document.body.scrollTop = 0
+        })
+      }
+    }
   }
 }
 </script>
