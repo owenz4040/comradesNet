@@ -15,7 +15,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     // Always scroll to top - force it
@@ -28,6 +28,11 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
 }
 
+// Immediate scroll to top - before anything renders
+window.scrollTo(0, 0)
+document.documentElement.scrollTop = 0
+document.body.scrollTop = 0
+
 // Force scroll to top on page load
 window.addEventListener('load', () => {
   window.scrollTo(0, 0)
@@ -35,4 +40,26 @@ window.addEventListener('load', () => {
   document.body.scrollTop = 0
 })
 
-createApp(App).use(router).mount('#app')
+// Force scroll before DOM content loads
+document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0)
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
+})
+
+const app = createApp(App)
+app.use(router)
+
+// Force scroll before mounting
+window.scrollTo(0, 0)
+document.documentElement.scrollTop = 0
+document.body.scrollTop = 0
+
+app.mount('#app')
+
+// Force scroll after mounting
+setTimeout(() => {
+  window.scrollTo(0, 0)
+  document.documentElement.scrollTop = 0
+  document.body.scrollTop = 0
+}, 0)
