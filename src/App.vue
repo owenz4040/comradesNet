@@ -27,9 +27,16 @@ export default {
     }
   },
   mounted() {
+    // Ensure page starts at top
+    window.scrollTo(0, 0)
+    
     // Hide splash screen after 3 seconds
     setTimeout(() => {
       this.showSplash = false
+      // Scroll to top after splash screen
+      this.$nextTick(() => {
+        window.scrollTo(0, 0)
+      })
     }, 3000)
   }
 }
@@ -40,5 +47,11 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Prevent auto-scroll on page load */
+body {
+  overflow-anchor: none;
 }
 </style>
