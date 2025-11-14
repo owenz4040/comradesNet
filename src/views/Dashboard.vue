@@ -5909,4 +5909,175 @@ export default {
   }
 }
 
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Dashboard Navbar */
+  .dashboard-navbar {
+    padding: 0.75rem 0;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  
+  .user-name {
+    display: none;
+  }
+  
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  /* Welcome Section */
+  .welcome-section {
+    padding: 1.5rem 0;
+  }
+  
+  .user-name-highlight {
+    font-size: 1.75rem;
+  }
+  
+  .greeting-hello {
+    font-size: 0.9rem;
+  }
+  
+  .greeting-subtext {
+    font-size: 0.8rem;
+  }
+  
+  .quick-actions {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .action-btn {
+    padding: 1.5rem;
+  }
+  
+  /* Stats Grid */
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    min-height: 200px;
+  }
+  
+  /* Content Grid */
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Activity List */
+  .activity-item {
+    padding: 1rem;
+  }
+  
+  .activity-icon-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .activity-icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .activity-content h3 {
+    font-size: 0.95rem;
+  }
+  
+  .activity-content p {
+    font-size: 0.8rem;
+  }
+  
+  /* Modal Improvements */
+  .modal-overlay {
+    padding: 1rem;
+  }
+  
+  .modal-content {
+    max-height: 85vh;
+    border-radius: 16px;
+  }
+  
+  .payment-modal,
+  .profile-modal {
+    max-width: 100%;
+  }
+  
+  .payment-info {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .amount-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* User Menu Dropdown */
+  .user-dropdown {
+    right: 0;
+    left: auto;
+    min-width: 250px;
+  }
+  
+  /* Chart */
+  .chart-bars {
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices */
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .user-name-highlight {
+    font-size: 1.5rem;
+  }
+  
+  .quick-actions {
+    gap: 0.75rem;
+  }
+  
+  .action-btn {
+    padding: 1.25rem;
+  }
+  
+  .action-label {
+    font-size: 0.95rem;
+  }
+  
+  .action-sublabel {
+    font-size: 0.75rem;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.25rem;
+  }
+  
+  .amount-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .amount-btn {
+    width: 100%;
+  }
+  
+  .dashboard-card {
+    padding: 1.25rem;
+  }
+  
+  .card-header h2 {
+    font-size: 1.1rem;
+  }
+}
+
 </style>
