@@ -19,7 +19,9 @@
             </p>
             <div class="hero-buttons">
               <a href="#plans" class="btn btn-primary">
-                <span class="phone-icon">📞</span>
+                <div class="btn-icon-wrapper">
+                  <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=80&h=80&fit=crop" alt="Contact" class="btn-icon-img" />
+                </div>
                 CALL TO GET CONNECTED
               </a>
               <a href="tel:+254727895108" class="btn btn-phone">
@@ -42,10 +44,21 @@
             </div>
           </div>
           <div class="hero-image">
-            <div class="floating-card card-1">📶 100 Mbps</div>
-            <div class="floating-card card-2">⚡ Ultra Fast</div>
-            <div class="floating-card card-3">🔒 Secure</div>
-            <div class="hero-illustration">🌐</div>
+            <div class="floating-card card-1">
+              <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=80&h=80&fit=crop" alt="Speed" class="card-icon" />
+              <span>100 Mbps</span>
+            </div>
+            <div class="floating-card card-2">
+              <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=80&h=80&fit=crop" alt="Fast" class="card-icon" />
+              <span>Ultra Fast</span>
+            </div>
+            <div class="floating-card card-3">
+              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=80&h=80&fit=crop" alt="Secure" class="card-icon" />
+              <span>Secure</span>
+            </div>
+            <div class="hero-illustration">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=400&fit=crop" alt="Network" class="hero-illustration-img" />
+            </div>
           </div>
         </div>
       </div>
@@ -59,7 +72,9 @@
         
         <div class="features-grid">
           <div class="feature-card" v-for="(feature, index) in features" :key="index">
-            <div class="feature-icon">{{ feature.icon }}</div>
+            <div class="feature-icon">
+              <img :src="feature.icon" :alt="feature.title" class="feature-icon-img" />
+            </div>
             <h3>{{ feature.title }}</h3>
             <p>{{ feature.description }}</p>
           </div>
@@ -123,17 +138,17 @@ export default {
     return {
       features: [
         {
-          icon: '⚡',
+          icon: '/images/fast.png',
           title: 'FAST',
           description: 'Reliable speeds for streaming, gaming, and browsing without any lag'
         },
         {
-          icon: '💰',
+          icon: '/images/affordable.jpg',
           title: 'AFFORDABLE',
           description: 'Student-friendly prices starting at just KSh 999 per month'
         },
         {
-          icon: '�',
+          icon: '/images/reliable.jpg',
           title: 'RELIABLE',
           description: 'Stable connections with 99.9% uptime and 24/7 support'
         }
@@ -250,17 +265,32 @@ export default {
   font-weight: 800;
   letter-spacing: 1.5px;
   box-shadow: 0 15px 40px rgba(220, 20, 60, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-buttons .btn-primary .btn-icon-wrapper {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero-buttons .btn-primary .btn-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.2);
 }
 
 .hero-buttons .btn-primary:hover {
   box-shadow: 0 20px 50px rgba(220, 20, 60, 0.6);
 }
 
-.phone-icon {
-  font-size: 1.3rem;
-  margin-right: 0.5rem;
-  display: inline-block;
-  animation: bounce 2s ease-in-out infinite;
+.hero-buttons .btn-primary:hover .btn-icon-img {
+  filter: brightness(1.4);
 }
 
 .btn-phone {
@@ -363,9 +393,20 @@ export default {
 }
 
 .hero-illustration {
-  font-size: 20rem;
+  width: 400px;
+  height: 400px;
   opacity: 0.3;
   animation: float 4s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-illustration-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .floating-card {
@@ -379,6 +420,17 @@ export default {
   backdrop-filter: blur(10px);
   font-size: 1.1rem;
   letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.floating-card .card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .card-1 {
@@ -494,15 +546,31 @@ export default {
 }
 
 .feature-icon {
-  font-size: 4.5rem;
+  width: 100px;
+  height: 100px;
   margin-bottom: 1.5rem;
   display: inline-block;
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
-  transform: scale(1.2) rotateY(360deg);
-  transition: transform 0.6s ease;
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.6s ease;
+}
+
+.feature-card:hover .feature-icon-img {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .feature-card h3 {
@@ -538,23 +606,29 @@ export default {
 }
 
 .plans-preview::before {
-  content: '💰';
+  content: '';
   position: absolute;
-  font-size: 15rem;
-  opacity: 0.03;
+  width: 200px;
+  height: 200px;
+  background: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=200&h=200&fit=crop') center/cover;
+  opacity: 0.05;
   top: 10%;
   left: 5%;
   animation: float 10s ease-in-out infinite;
+  border-radius: 50%;
 }
 
 .plans-preview::after {
-  content: '⚡';
+  content: '';
   position: absolute;
-  font-size: 15rem;
-  opacity: 0.03;
+  width: 200px;
+  height: 200px;
+  background: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?w=200&h=200&fit=crop') center/cover;
+  opacity: 0.05;
   bottom: 10%;
   right: 5%;
   animation: float 12s ease-in-out infinite reverse;
+  border-radius: 50%;
 }
 
 /* CTA Section */
@@ -566,14 +640,17 @@ export default {
 }
 
 .cta::before {
-  content: '📡';
+  content: '';
   position: absolute;
-  font-size: 25rem;
-  opacity: 0.08;
+  width: 300px;
+  height: 300px;
+  background: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=300&h=300&fit=crop') center/cover;
+  opacity: 0.1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: pulse 4s ease-in-out infinite;
+  border-radius: 50%;
 }
 
 .cta::after {

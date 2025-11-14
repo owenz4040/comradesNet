@@ -2,9 +2,9 @@
   <div id="app">
     <SplashScreen v-if="showSplash" />
     <div v-show="!showSplash">
-      <Navbar />
+      <Navbar v-if="!isDashboardRoute" />
       <router-view></router-view>
-      <Footer />
+      <Footer v-if="!isDashboardRoute" />
     </div>
   </div>
 </template>
@@ -24,6 +24,11 @@ export default {
   data() {
     return {
       showSplash: true
+    }
+  },
+  computed: {
+    isDashboardRoute() {
+      return this.$route.path === '/dashboard'
     }
   },
   created() {

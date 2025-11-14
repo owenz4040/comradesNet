@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comrades WiFi - Email Verification</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    
+    .email-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #DC143C 0%, #B22222 50%, #0066CC 100%);
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #DC143C 0%, #0066CC 100%);
+    }
+    
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .logo-text {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    
+    .header h1 {
+      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+    
+    .header p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    .content {
+      padding: 50px 40px;
+      background: #ffffff;
+    }
+    
+    .greeting {
+      font-size: 18px;
+      color: #1A1A1A;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    .message {
+      color: #4A5568;
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+    
+    .otp-container {
+      background: linear-gradient(135deg, #FFF5F5 0%, #F0F7FF 100%);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin: 30px 0;
+      border: 2px solid transparent;
+      border-image: linear-gradient(135deg, #DC143C, #0066CC) 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .otp-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #DC143C 0%, #0066CC 100%);
+    }
+    
+    .otp-label {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #718096;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    
+    .otp-code {
+      font-size: 48px;
+      font-weight: 900;
+      background: linear-gradient(135deg, #DC143C 0%, #0066CC 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 12px;
+      font-family: 'Courier New', Monaco, monospace;
+      padding: 10px 0;
+      display: inline-block;
+    }
+    
+    .otp-expiry {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #718096;
+      font-weight: 600;
+    }
+    
+    .info-box {
+      background: #F8FAFC;
+      border-left: 4px solid #0066CC;
+      border-radius: 8px;
+      padding: 25px;
+      margin: 30px 0;
+    }
+    
+    .info-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-bottom: 15px;
+    }
+    
+    .info-list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .info-list li {
+      color: #4A5568;
+      font-size: 15px;
+      margin-bottom: 10px;
+      padding-left: 25px;
+      position: relative;
+    }
+    
+    .info-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(135deg, #DC143C, #0066CC);
+      border-radius: 50%;
+    }
+    
+    .support-section {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px solid #E2E8F0;
+    }
+    
+    .support-text {
+      color: #718096;
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .contact-info {
+      display: inline-block;
+      background: linear-gradient(135deg, #DC143C 0%, #0066CC 100%);
+      color: #ffffff;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.3s ease;
+    }
+    
+    .footer {
+      background: linear-gradient(135deg, #1A1A2E 0%, #2D3748 100%);
+      padding: 40px;
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    
+    .footer-logo .comrades {
+      background: linear-gradient(135deg, #DC143C, #FF0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .footer-logo .wifi {
+      background: linear-gradient(135deg, #0066CC, #0080FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .footer-text {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      margin: 10px 0;
+    }
+    
+    .footer-tagline {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+    
+    .divider {
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #DC143C, #0066CC);
+      margin: 20px auto;
+      border-radius: 2px;
+    }
+    
+    @media only screen and (max-width: 600px) {
+      .email-wrapper {
+        border-radius: 0;
+      }
+      
+      .header {
+        padding: 40px 30px;
+      }
+      
+      .header h1 {
+        font-size: 26px;
+      }
+      
+      .content {
+        padding: 40px 30px;
+      }
+      
+      .otp-code {
+        font-size: 36px;
+        letter-spacing: 8px;
+      }
+      
+      .otp-container {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-text">CW</span>
+      </div>
+      <h1>Comrades WiFi</h1>
+      <p>Email Verification</p>
+    </div>
+    
+    <div class="content">
+      <div class="greeting">Hello there,</div>
+      
+      <div class="message">
+        Thank you for choosing Comrades WiFi. To complete your email verification, please use the verification code below:
+      </div>
+      
+      <div class="otp-container">
+        <div class="otp-label">Your Verification Code</div>
+        <div class="otp-code">123456</div>
+        <div class="otp-expiry">Valid for 10 minutes</div>
+      </div>
+      
+      <div class="info-box">
+        <div class="info-title">Security Information</div>
+        <ul class="info-list">
+          <li>This code expires in 10 minutes from the time of request</li>
+          <li>Never share this code with anyone, including Comrades WiFi staff</li>
+          <li>If you didn't request this code, please ignore this email</li>
+          <li>For security, this code can only be used once</li>
+        </ul>
+      </div>
+      
+      <div class="support-section">
+        <div class="support-text">Need assistance? Our support team is here to help</div>
+        <a href="mailto:support@comradeswifi.co.ke" class="contact-info">Contact Support</a>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <div class="footer-logo">
+        <span class="comrades">Comrades</span> <span class="wifi">WiFi</span>
+      </div>
+      <div class="divider"></div>
+      <div class="footer-text">&copy; 2025 Comrades WiFi. All rights reserved.</div>
+      <div class="footer-tagline">Fast • Affordable • Reliable Internet</div>
+      <div class="footer-text" style="margin-top: 15px;">Nairobi, Kenya</div>
+    </div>
+  </div>
+</body>
+</html>

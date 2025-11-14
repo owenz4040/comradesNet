@@ -9,10 +9,18 @@
           </div>
           <p class="footer-tagline">Connecting Kenya, One Home at a Time</p>
           <div class="social-links">
-            <a href="#" class="social-icon">📘</a>
-            <a href="#" class="social-icon">📸</a>
-            <a href="#" class="social-icon">🐦</a>
-            <a href="#" class="social-icon">📺</a>
+            <a href="https://facebook.com" target="_blank" class="social-icon facebook">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png" alt="Facebook" class="social-icon-img" />
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-icon instagram">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-icon-img" />
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-icon tiktok">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="social-icon-img" />
+            </a>
+            <a href="https://wa.me/254727895108" target="_blank" class="social-icon whatsapp">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon-img" />
+            </a>
           </div>
         </div>
         
@@ -39,11 +47,26 @@
         <div class="footer-section">
           <h3>Contact</h3>
           <ul>
-            <li>📞 +254 727 895 108</li>
-            <li>📞 +254 703 551 813</li>
-            <li>📧 info@comradeswifi.co.ke</li>
-            <li>📍 Nairobi, Kenya</li>
-            <li>🕐 24/7 Support</li>
+            <li>
+              <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=40&h=40&fit=crop" alt="Phone" class="contact-icon" />
+              +254 727 895 108
+            </li>
+            <li>
+              <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=40&h=40&fit=crop" alt="Phone" class="contact-icon" />
+              +254 703 551 813
+            </li>
+            <li>
+              <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=40&h=40&fit=crop" alt="Email" class="contact-icon" />
+              info@comradeswifi.co.ke
+            </li>
+            <li>
+              <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=40&h=40&fit=crop" alt="Location" class="contact-icon" />
+              Nairobi, Kenya
+            </li>
+            <li>
+              <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=40&h=40&fit=crop" alt="Support" class="contact-icon" />
+              24/7 Support
+            </li>
           </ul>
         </div>
       </div>
@@ -97,7 +120,6 @@ export default {
   height: 50px;
   width: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .footer-logo-text {
@@ -139,11 +161,23 @@ export default {
   font-size: 1.2rem;
   transition: transform 0.3s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.social-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .social-icon:hover {
   transform: translateY(-5px) scale(1.1);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon:hover .social-icon-img {
+  transform: scale(1.15);
 }
 
 .footer-section ul {
@@ -152,6 +186,17 @@ export default {
 
 .footer-section ul li {
   margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .footer-section ul li a {
