@@ -5,6 +5,22 @@ services:
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
+      - type: redirect
+        source: http://colinowen.online/*
+        destination: https://comradeswifi.net/:splat
+        permanent: true
+      - type: redirect
+        source: https://colinowen.online/*
+        destination: https://comradeswifi.net/:splat
+        permanent: true
+      - type: redirect
+        source: http://www.colinowen.online/*
+        destination: https://comradeswifi.net/:splat
+        permanent: true
+      - type: redirect
+        source: https://www.colinowen.online/*
+        destination: https://comradeswifi.net/:splat
+        permanent: true
       - type: rewrite
         source: /*
         destination: /index.html
