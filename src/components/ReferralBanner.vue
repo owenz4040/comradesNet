@@ -5,7 +5,7 @@
         <div class="referral-icon">🎁</div>
         <div class="referral-text">
           <h2>Refer a Friend & Get Rewarded!</h2>
-          <p>Earn <strong>KSh 500</strong> credit for every friend you refer. They get a <strong>discount</strong> too!</p>
+          <p>Earn <strong>KSh 250</strong> credit for every friend you refer. They get a <strong>discount</strong> too!</p>
         </div>
         <button class="btn-referral">
           Start Referring

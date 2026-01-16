@@ -5,6 +5,7 @@
       <Navbar v-if="!isDashboardRoute" />
       <router-view></router-view>
       <Footer v-if="!isDashboardRoute" />
+      <FloatingChatbot v-if="!isDashboardRoute" />
     </div>
   </div>
 </template>
@@ -13,13 +14,15 @@
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
 import SplashScreen from './components/SplashScreen.vue'
+import FloatingChatbot from './components/FloatingChatbot.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
-    SplashScreen
+    SplashScreen,
+    FloatingChatbot
   },
   data() {
     return {

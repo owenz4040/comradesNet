@@ -125,14 +125,25 @@
       </div>
     </section>
 
-    <section class="faq-section">
+    <section class="animated-features-section">
       <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-grid">
-          <div class="faq-item" v-for="(faq, index) in faqs" :key="index">
-            <h3>{{ faq.question }}</h3>
-            <p>{{ faq.answer }}</p>
+        <h2 class="section-title">Why Choose Comrades WiFi?</h2>
+        <div class="animated-features-grid">
+          <div class="feature-card" v-for="(feature, index) in features" :key="index" :style="{animationDelay: index * 0.1 + 's'}">
+            <div class="feature-icon-wrapper">
+              <span class="feature-icon">{{ feature.icon }}</span>
+              <div class="pulse-ring"></div>
+            </div>
+            <h3>{{ feature.title }}</h3>
+            <p>{{ feature.description }}</p>
           </div>
+        </div>
+        
+        <div class="floating-elements">
+          <div class="float-element element-1">🚀</div>
+          <div class="float-element element-2">⚡</div>
+          <div class="float-element element-3">🌟</div>
+          <div class="float-element element-4">💎</div>
         </div>
       </div>
     </section>
@@ -211,30 +222,36 @@ export default {
           ]
         }
       ],
-      faqs: [
+      features: [
         {
-          question: 'How long does installation take?',
-          answer: 'Installation typically takes 2-3 hours. Our technicians will schedule a convenient time and ensure everything is working perfectly before they leave.'
+          icon: '🚀',
+          title: 'Lightning Fast',
+          description: 'Experience blazing-fast internet speeds up to 20 Mbps for seamless streaming and gaming'
         },
         {
-          question: 'Is there a contract or can I cancel anytime?',
-          answer: 'We offer flexible monthly plans with no long-term contracts. You can cancel anytime with 30 days notice.'
+          icon: '💰',
+          title: 'Affordable Plans',
+          description: 'Starting from just KSh 999/month with unlimited data and no hidden fees'
         },
         {
-          question: 'What areas do you cover?',
-          answer: 'We currently cover 50+ locations across Kenya including Nairobi, Mombasa, Kisumu, Nakuru, and surrounding areas. Contact us to check availability in your area.'
+          icon: '🔧',
+          title: 'FREE Installation',
+          description: 'Professional installation at no extra cost, scheduled at your convenience'
         },
         {
-          question: 'Do I need to buy a router?',
-          answer: 'Our Power User plan and above include a free router. For Home Basic, you can rent a router for KSh 500/month or use your own compatible device.'
+          icon: '📍',
+          title: 'Wide Coverage',
+          description: 'Available in Olekasai, Tuala, Mayor Road, Maasai Lodge, Tumaini, and more'
         },
         {
-          question: 'What happens if I experience issues?',
-          answer: 'Our 24/7 support team is always ready to help. Most issues are resolved remotely within 2 hours, or we send a technician the same day.'
+          icon: '⚡',
+          title: 'Unlimited Data',
+          description: 'All plans come with unlimited data - browse, stream, and download without limits'
         },
         {
-          question: 'Can I upgrade or downgrade my plan?',
-          answer: 'Absolutely! You can change your plan anytime. Upgrades take effect immediately, while downgrades apply from your next billing cycle.'
+          icon: '🎯',
+          title: '24/7 Support',
+          description: 'Our dedicated team is always available to help you - call us anytime!'
         }
       ]
     }
@@ -545,39 +562,188 @@ export default {
 }
 
 /* FAQ Section */
-.faq-section {
+.animated-features-section {
   padding: 4rem 0;
   background: linear-gradient(135deg, #FFF5F3 0%, #F3FBFF 100%);
+  position: relative;
+  overflow: hidden;
 }
 
-.faq-grid {
+.animated-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-.faq-item {
+.feature-card {
   background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.6s ease backwards;
+  position: relative;
+  overflow: hidden;
 }
 
-.faq-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-red-blue);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
 }
 
-.faq-item h3 {
-  font-size: 1.2rem;
+.feature-card:hover::before {
+  opacity: 0.05;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(220, 20, 60, 0.15);
+}
+
+.feature-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon {
+  font-size: 4rem;
+  display: block;
+  animation: bounce 2s infinite;
+  position: relative;
+  z-index: 2;
+}
+
+.pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border: 3px solid var(--brand-red);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  z-index: 1;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
   margin-bottom: 1rem;
   color: var(--text-dark);
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
 }
 
-.faq-item p {
+.feature-card p {
   color: #666;
-  line-height: 1.6;
+  line-height: 1.8;
+  font-size: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.float-element {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.15;
+  animation: float 6s infinite ease-in-out;
+}
+
+.element-1 {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.element-3 {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.element-4 {
+  bottom: 15%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-40px) rotate(-5deg);
+  }
+  75% {
+    transform: translateY(-20px) rotate(5deg);
+  }
 }
 
 /* Responsive */
@@ -603,8 +769,16 @@ export default {
     padding: 0.8rem;
   }
   
-  .faq-grid {
+  .animated-features-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    padding: 2rem;
+  }
+  
+  .float-element {
+    font-size: 2rem;
   }
 }
 </style>

@@ -7,6 +7,7 @@ import Plans from './views/Plans.vue'
 import Contact from './views/Contact.vue'
 import Auth from './views/Auth.vue'
 import Dashboard from './views/Dashboard.vue'
+import Entertainment from './views/Entertainment.vue'
 import './style.css'
 
 const routes = [
@@ -18,6 +19,11 @@ const routes = [
   { 
     path: '/plans', 
     component: Plans,
+    meta: { requiresGuest: true }
+  },
+  { 
+    path: '/entertainment', 
+    component: Entertainment,
     meta: { requiresGuest: true }
   },
   { 

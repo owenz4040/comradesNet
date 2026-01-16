@@ -1,13 +1,15 @@
 # Comrades WiFi 🌐
 
-A beautiful, modern Vue.js frontend for Comrades WiFi - Kenya's premier telecommunication system.
+A beautiful, modern Vue.js frontend for Comrades WiFi - Kenya's premier telecommunication system with AI-powered chatbot assistance.
 
 ## Features ✨
 
 - 🎨 **Beautiful Design** - Vibrant Kenyan-inspired colors and smooth animations
+- 🤖 **AI Chatbot** - Powered by OpenAI/OpenRouter for intelligent customer support
 - 📱 **Fully Responsive** - Works perfectly on all devices
 - ⚡ **Lightning Fast** - Built with Vue 3 and Vite for optimal performance
 - 🧭 **Easy Navigation** - Clean routing with Vue Router
+- 🎬 **Entertainment Hub** - Real-time movies and sports updates via TMDB and TheSportsDB APIs
 - 🎯 **User Friendly** - Intuitive interface for browsing plans and contacting support
 
 ## Tech Stack 🛠️
@@ -15,6 +17,9 @@ A beautiful, modern Vue.js frontend for Comrades WiFi - Kenya's premier telecomm
 - **Vue 3** - Progressive JavaScript framework
 - **Vue Router** - Official router for Vue.js
 - **Vite** - Next generation frontend tooling
+- **OpenRouter AI** - Free AI models (Llama 3.2) for intelligent chatbot
+- **TMDB API** - Real-time movie data
+- **TheSportsDB API** - Live sports events
 - **CSS3** - Modern styling with gradients and animations
 
 ## Getting Started 🚀
@@ -31,12 +36,20 @@ A beautiful, modern Vue.js frontend for Comrades WiFi - Kenya's premier telecomm
 npm install
 ```
 
-2. Start the development server:
+2. (Optional) Configure AI Chatbot:
+   - The chatbot works out-of-the-box with a free demo key (limited requests)
+   - For unlimited AI responses, get a free API key from [OpenRouter](https://openrouter.ai/keys)
+   - Create a `.env` file (copy from `.env.example`) and add your key:
+   ```
+   VITE_OPENROUTER_API_KEY=your_api_key_here
+   ```
+
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-3. Open your browser and visit `http://localhost:3000`
+4. Open your browser and visit `http://localhost:3000`
 
 ### Build for Production
 

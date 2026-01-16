@@ -3,7 +3,7 @@
     <div class="container">
       <div class="support-content">
         <div class="support-image">
-          <img src="/images/owen.jpg" alt="Customer Support - Owen" />
+          <img src="/images/comrades-logo.jpeg" alt="Comrades WiFi Support" />
           <div class="support-badge">
             <div class="badge-icon">💬</div>
             <div class="badge-text">
@@ -22,7 +22,7 @@
               <div class="feature-icon">📞</div>
               <div class="feature-content">
                 <h3>Call Us Anytime</h3>
-                <a href="tel:+254727895108" class="support-link">+254 727 895 108</a>
+                <a href="tel:0793590575" class="support-link">0793590575</a>
                 <p>Available 24 hours a day, 7 days a week</p>
               </div>
             </div>
@@ -39,7 +39,7 @@
               <div class="feature-icon">📧</div>
               <div class="feature-content">
                 <h3>Email Support</h3>
-                <a href="mailto:support@comradeswifi.co.ke" class="support-link">support@comradeswifi.co.ke</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=support@comradeswifi.net" target="_blank" class="support-link">support@comradeswifi.net</a>
                 <p>We respond within 1 hour during business hours</p>
               </div>
             </div>

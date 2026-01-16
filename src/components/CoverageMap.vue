@@ -21,15 +21,11 @@
             <ul>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Ongata Rongai Town Center</span>
+                <span>Olekasai A</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Rimpa</span>
-              </li>
-              <li>
-                <span class="check-icon">✓</span>
-                <span>Nkoroi</span>
+                <span>Olekasasi B</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
@@ -37,19 +33,23 @@
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Sokon Mjinga</span>
+                <span>Mayor Road</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Gate Way</span>
+                <span>Maasai Lodge</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Enkare Narok</span>
+                <span>Tumaini</span>
               </li>
               <li>
                 <span class="check-icon">✓</span>
-                <span>Magadi Road Areas</span>
+                <span>Gataka Road</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Tuskys</span>
               </li>
             </ul>
           </div>
@@ -58,7 +58,7 @@
             <div class="contact-icon">📞</div>
             <div>
               <h4>Check Coverage in Your Area</h4>
-              <a href="tel:+254727895108" class="contact-link">+254 727 895 108</a>
+              <a href="tel:0793590575" class="contact-link">0793590575</a>
             </div>
           </div>
         </div>

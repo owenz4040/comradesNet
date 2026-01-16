@@ -5,7 +5,9 @@
     
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-bg"></div>
+      <div class="hero-bg">
+        <div class="particle" v-for="n in 20" :key="n" :style="getParticleStyle(n)"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
@@ -19,13 +21,10 @@
             </p>
             <div class="hero-buttons">
               <a href="#plans" class="btn btn-primary">
-                <div class="btn-icon-wrapper">
-                  <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=80&h=80&fit=crop" alt="Contact" class="btn-icon-img" />
-                </div>
-                CALL TO GET CONNECTED
+                📞 CALL TO GET CONNECTED
               </a>
-              <a href="tel:+254727895108" class="btn btn-phone">
-                +254 727 895 108
+              <a href="tel:0793590575" class="btn btn-phone">
+                📞 0793590575
               </a>
             </div>
             <div class="hero-stats">
@@ -154,7 +153,37 @@ export default {
         }
       ]
     }
-  }
+  },
+  methods: {
+    getParticleStyle(n) {
+      const size = Math.random() * 4 + 2
+      const duration = Math.random() * 20 + 15
+      const delay = Math.random() * 5
+      return {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDuration: `${duration}s`,
+        animationDelay: `${delay}s`,
+        background: Math.random() > 0.5 ? 'rgba(220, 20, 60, 0.6)' : 'rgba(0, 102, 204, 0.6)'
+      }
+    }  },
+  methods: {
+    getParticleStyle(n) {
+      const size = Math.random() * 4 + 2
+      const duration = Math.random() * 20 + 15
+      const delay = Math.random() * 5
+      return {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDuration: `${duration}s`,
+        animationDelay: `${delay}s`,
+        background: Math.random() > 0.5 ? 'rgba(220, 20, 60, 0.6)' : 'rgba(0, 102, 204, 0.6)'
+      }
+    }  }
 }
 </script>
 
@@ -175,36 +204,62 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5F7FA 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #0A0E27 0%, #1A1A3E 50%, #0F1729 100%);
   z-index: -1;
+  overflow: hidden;
 }
 
 .hero-bg::before {
   content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: var(--gradient-red);
+  width: 1000px;
+  height: 1000px;
+  background: radial-gradient(circle, rgba(220, 20, 60, 0.4), transparent 70%);
   border-radius: 50%;
-  top: -250px;
-  right: -250px;
-  opacity: 0.1;
-  animation: float 6s ease-in-out infinite;
-  filter: blur(60px);
+  top: -400px;
+  right: -400px;
+  animation: float 8s ease-in-out infinite, pulse 4s ease-in-out infinite;
+  filter: blur(100px);
 }
 
 .hero-bg::after {
   content: '';
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: var(--gradient-blue);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.4), transparent 70%);
   border-radius: 50%;
-  bottom: -200px;
-  left: -200px;
-  opacity: 0.1;
-  animation: float 8s ease-in-out infinite reverse;
-  filter: blur(60px);
+  bottom: -350px;
+  left: -350px;
+  animation: float 10s ease-in-out infinite reverse, pulse 5s ease-in-out infinite;
+  filter: blur(100px);
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: float-particle 15s ease-in-out infinite;
+  box-shadow: 0 0 10px currentColor;
+}
+
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(50px, -50px) scale(1.2);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-30px, -100px) scale(0.8);
+    opacity: 0.6;
+  }
+  75% {
+    transform: translate(-80px, -30px) scale(1.1);
+    opacity: 0.9;
+  }
 }
 
 .hero-content {
@@ -215,38 +270,56 @@ export default {
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4.5rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: 1.5rem;
   animation: fadeInUp 0.8s ease;
-  letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  letter-spacing: -2px;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(220, 20, 60, 0.3);
+  position: relative;
 }
 
 .gradient-text {
   background: var(--gradient-red-blue);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   display: inline-block;
   position: relative;
-  animation: pulse 3s ease-in-out infinite;
+  animation: gradient-shift 4s ease infinite;
+}
+
+.gradient-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: var(--gradient-red-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(20px);
+  opacity: 0.5;
 }
 
 .hero-subtitle strong {
-  color: var(--brand-red);
+  color: #FF6B8A;
   font-weight: 700;
+  text-shadow: 0 0 20px rgba(255, 107, 138, 0.6);
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  color: #555;
-  margin-bottom: 2rem;
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
   line-height: 1.8;
   animation: fadeInUp 1s ease;
   font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.02);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -344,45 +417,46 @@ export default {
 
 .stat {
   text-align: center;
-  padding: 1.5rem;
-  border-radius: 20px;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+  padding: 2rem 1.5rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .stat:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 20px 50px rgba(220, 20, 60, 0.2);
-  border-color: var(--brand-red);
+  transform: translateY(-15px) scale(1.08) rotateY(5deg);
+  box-shadow: 0 25px 60px rgba(220, 20, 60, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(220, 20, 60, 0.6);
+  background: rgba(220, 20, 60, 0.15);
 }
 
 .stat-number {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 900;
-  background: var(--gradient-red-blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: white;
   font-family: 'Montserrat', sans-serif;
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   display: block;
   margin-bottom: 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
+  text-shadow: 0 4px 20px rgba(220, 20, 60, 0.5), 0 0 40px rgba(255, 107, 138, 0.4);
 }
 
 .stat:hover .stat-number {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  text-shadow: 0 4px 30px rgba(220, 20, 60, 0.8), 0 0 60px rgba(255, 107, 138, 0.6);
 }
 
 .stat-label {
-  color: #666;
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
   font-weight: 600;
   margin-top: 0.5rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
 .hero-image {
@@ -411,18 +485,20 @@ export default {
 
 .floating-card {
   position: absolute;
-  background: white;
-  padding: 1.2rem 1.8rem;
-  border-radius: 20px;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  padding: 1.3rem 2rem;
+  border-radius: 25px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   font-weight: 700;
   animation: float 3s ease-in-out infinite;
-  backdrop-filter: blur(10px);
   font-size: 1.1rem;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .floating-card .card-icon {
@@ -502,11 +578,24 @@ export default {
   padding: 3rem 2.5rem;
   border-radius: 30px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border: 3px solid transparent;
   text-align: center;
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.8s ease backwards;
+}
+
+.feature-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.feature-card:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.feature-card:nth-child(3) {
+  animation-delay: 0.5s;
 }
 
 .feature-card::before {
@@ -520,82 +609,123 @@ export default {
   transition: left 0.7s;
 }
 
+.feature-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(220, 20, 60, 0.05), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: rotate 20s linear infinite;
+}
+
 .feature-card:hover::before {
   left: 100%;
 }
 
+.feature-card:hover::after {
+  opacity: 1;
+}
+
 .feature-card:nth-child(1):hover {
   border-color: var(--brand-red);
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 70px rgba(220, 20, 60, 0.25);
+  transform: translateY(-20px) scale(1.05) rotateZ(-2deg);
+  box-shadow: 0 30px 80px rgba(220, 20, 60, 0.3);
   background: linear-gradient(135deg, #FFF5F5 0%, #FFFFFF 100%);
 }
 
 .feature-card:nth-child(2):hover {
   border-color: var(--brand-blue);
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 70px rgba(0, 102, 204, 0.25);
+  transform: translateY(-20px) scale(1.05);
+  box-shadow: 0 30px 80px rgba(0, 102, 204, 0.3);
   background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
 }
 
 .feature-card:nth-child(3):hover {
   border-color: var(--accent-black);
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 70px rgba(26, 26, 26, 0.25);
+  transform: translateY(-20px) scale(1.05) rotateZ(2deg);
+  box-shadow: 0 30px 80px rgba(26, 26, 26, 0.3);
   background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
 }
 
 .feature-icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 1.5rem;
-  display: inline-block;
-  transition: transform 0.3s ease;
-  border-radius: 20px;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 2rem;
+  display: block;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.feature-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-red-blue);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: overlay;
+}
+
+.feature-card:hover .feature-icon::before {
+  opacity: 0.3;
 }
 
 .feature-icon-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
 .feature-card:hover .feature-icon {
-  transform: scale(1.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  transition: all 0.6s ease;
+  transform: scale(1.15) translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
 }
 
 .feature-card:hover .feature-icon-img {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.2) rotate(5deg);
 }
 
 .feature-card h3 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   margin-bottom: 1rem;
   color: var(--text-dark);
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  letter-spacing: 3px;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .feature-card:hover h3 {
-  letter-spacing: 4px;
+  letter-spacing: 2px;
+  transform: scale(1.05);
 }
 
 .feature-card p {
   color: #666;
-  line-height: 1.8;
+  line-height: 1.9;
   font-size: 1.05rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
 }
 
 .feature-card:hover p {
-  color: #444;
+  color: #333;
+  transform: translateY(5px);
 }
 
 /* Plans Preview */
@@ -634,7 +764,7 @@ export default {
 /* CTA Section */
 .cta {
   padding: 8rem 0;
-  background: var(--gradient-red-blue);
+  background: linear-gradient(135deg, #0A0E27 0%, #1A1A3E 100%);
   position: relative;
   overflow: hidden;
 }
@@ -642,15 +772,13 @@ export default {
 .cta::before {
   content: '';
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: url('https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=300&h=300&fit=crop') center/cover;
-  opacity: 0.1;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  animation: pulse 4s ease-in-out infinite;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(220, 20, 60, 0.3), transparent 60%),
+              radial-gradient(circle at 70% 50%, rgba(0, 102, 204, 0.3), transparent 60%);
+  animation: pulse 8s ease-in-out infinite;
 }
 
 .cta::after {

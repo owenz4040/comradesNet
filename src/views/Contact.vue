@@ -2,156 +2,31 @@
   <div class="contact-page">
     <section class="contact-hero">
       <div class="container">
-        <h1 class="page-title">Get In Touch</h1>
-        <p class="page-subtitle">We're here to help! Reach out and let's get you connected</p>
+        <h1 class="page-title">Contact Support</h1>
+        <p class="page-subtitle">We're here to help you get connected!</p>
       </div>
     </section>
 
     <section class="contact-section">
       <div class="container">
-        <div class="contact-grid">
-          <!-- Contact Form -->
-          <div class="contact-form-wrapper">
-            <h2>Send Us a Message</h2>
-            <form class="contact-form" @submit.prevent="submitForm">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  v-model="form.name" 
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  v-model="form.email" 
-                  placeholder="john@example.com"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="phone">Phone Number *</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  v-model="form.phone" 
-                  placeholder="+254 727 895 108"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="location">Your Location *</label>
-                <input 
-                  type="text" 
-                  id="location" 
-                  v-model="form.location" 
-                  placeholder="e.g., Nairobi, Westlands"
-                  required
-                />
-              </div>
-              
-              <div class="form-group">
-                <label for="plan">Interested In</label>
-                <select id="plan" v-model="form.plan">
-                  <option value="">Select a plan</option>
-                  <option value="home-basic">Home Basic - KSh 2,500/mo</option>
-                  <option value="power-user">Power User - KSh 4,500/mo</option>
-                  <option value="business-pro">Business Pro - KSh 7,500/mo</option>
-                  <option value="enterprise">Enterprise - KSh 15,000/mo</option>
-                  <option value="custom">Custom Solution</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                <label for="message">Message *</label>
-                <textarea 
-                  id="message" 
-                  v-model="form.message" 
-                  rows="5"
-                  placeholder="Tell us how we can help you..."
-                  required
-                ></textarea>
-              </div>
-              
-              <button type="submit" class="btn btn-primary btn-submit">
-                Send Message 📨
-              </button>
-            </form>
-            
-            <div v-if="formSubmitted" class="success-message">
-              <h3>✅ Message Sent!</h3>
-              <p>Thank you for reaching out! We'll get back to you within 24 hours.</p>
-            </div>
+        <div class="contact-simple">
+          <div class="contact-card">
+            <div class="contact-icon-large">📧</div>
+            <h2>Email Support</h2>
+            <a href="https://mail.google.com/mail/?view=cm&to=support@comradeswifi.net" target="_blank" class="contact-link">
+              support@comradeswifi.net
+            </a>
+            <p class="contact-description">We respond within 2 hours</p>
           </div>
 
-          <!-- Contact Info -->
-          <div class="contact-info">
-            <div class="info-card">
-              <div class="info-icon">📞</div>
-              <h3>Call Us</h3>
-              <p>+254 727 895 108</p>
-              <p>+254 703 551 813</p>
-              <p class="info-note">Available 24/7</p>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-icon">📧</div>
-              <h3>Email Us</h3>
-              <p>info@comradeswifi.co.ke</p>
-              <p>support@comradeswifi.co.ke</p>
-              <p class="info-note">Response within 2 hours</p>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-icon">📍</div>
-              <h3>Visit Our Office</h3>
-              <p>Westlands Square, 3rd Floor</p>
-              <p>Nairobi, Kenya</p>
-              <p class="info-note">Mon-Sat: 8AM - 6PM</p>
-            </div>
-            
-            <div class="info-card">
-              <div class="info-icon">💬</div>
-              <h3>Social Media</h3>
-              <div class="social-links-contact">
-                <a href="#" class="social-link">Facebook</a>
-                <a href="#" class="social-link">Twitter</a>
-                <a href="#" class="social-link">Instagram</a>
-                <a href="#" class="social-link">WhatsApp</a>
-              </div>
-            </div>
+          <div class="contact-card">
+            <div class="contact-icon-large">📞</div>
+            <h2>Call Us</h2>
+            <a href="tel:0793590575" class="contact-link">0793590575</a>
+            <a href="tel:+254703551813" class="contact-link secondary">+254 703 551 813</a>
+            <p class="contact-description">Available 24/7</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-      <div class="container">
-        <h2 class="section-title">Our Coverage Areas</h2>
-        <div class="coverage-info">
-          <div class="coverage-item">
-            <h3>🏙️ Major Cities</h3>
-            <p>Nairobi, Mombasa, Kisumu, Nakuru, Eldoret, Thika</p>
-          </div>
-          <div class="coverage-item">
-            <h3>🏘️ Residential Areas</h3>
-            <p>Westlands, Karen, Kilimani, Kileleshwa, Lavington, Parklands</p>
-          </div>
-          <div class="coverage-item">
-            <h3>📈 Expanding Soon</h3>
-            <p>Machakos, Nyeri, Meru, Kisii, Kakamega</p>
-          </div>
-        </div>
-        <p class="coverage-note">Not sure if we cover your area? <a href="#" class="link-primary">Check availability</a></p>
       </div>
     </section>
   </div>
@@ -198,16 +73,17 @@ export default {
 
 <style scoped>
 .contact-hero {
-  background: var(--gradient-2);
-  color: white;
+  background: var(--gradient-red-blue);
   padding: 6rem 0 4rem;
   text-align: center;
+  color: white;
 }
 
 .page-title {
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 900;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .page-subtitle {
@@ -216,217 +92,137 @@ export default {
 }
 
 .contact-section {
-  padding: 4rem 0;
-  background: white;
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #F8F9FA 0%, #FFFFFF 100%);
 }
 
-.contact-grid {
+.contact-simple {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 3rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.contact-form-wrapper {
-  background: linear-gradient(135deg, #FFF5F3 0%, #F3FBFF 100%);
-  padding: 3rem;
-  border-radius: 25px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+.contact-card {
+  background: white;
+  padding: 4rem 3rem;
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-form-wrapper h2 {
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-red-blue);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.contact-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(220, 20, 60, 0.3);
+  border-color: var(--brand-red);
+}
+
+.contact-card:hover::before {
+  opacity: 0.03;
+}
+
+.contact-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-icon-large {
+  font-size: 5rem;
+  margin-bottom: 1.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.contact-card h2 {
   font-size: 2rem;
-  margin-bottom: 2rem;
-  background: var(--gradient-1);
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: var(--gradient-red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
+.contact-link {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand-blue);
+  text-decoration: none;
+  margin: 1rem 0;
   padding: 1rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  background: rgba(0, 102, 204, 0.05);
   transition: all 0.3s ease;
-  background: white;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-orange);
-  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
-}
-
-.btn-submit {
-  width: 100%;
-  padding: 1.2rem;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.success-message {
-  background: var(--gradient-2);
+.contact-link:hover {
+  background: var(--brand-blue);
   color: white;
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  margin-top: 2rem;
-  animation: fadeInUp 0.5s ease;
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
 }
 
-.success-message h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.info-card {
-  background: white;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border-color: var(--primary-orange);
-}
-
-.info-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.info-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-}
-
-.info-card p {
+.contact-link.secondary {
+  font-size: 1.2rem;
   color: #666;
-  margin-bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.03);
 }
 
-.info-note {
-  color: var(--primary-orange);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
+.contact-link.secondary:hover {
+  background: var(--brand-red);
+  color: white;
 }
 
-.social-links-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.social-link {
-  color: var(--electric-blue);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: var(--primary-orange);
-}
-
-.map-section {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #FFF5F3 0%, #F3FBFF 100%);
-}
-
-.coverage-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0;
-}
-
-.coverage-item {
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.coverage-item h3 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-}
-
-.coverage-item p {
-  color: #666;
-  line-height: 1.6;
-}
-
-.coverage-note {
-  text-align: center;
-  margin-top: 2rem;
+.contact-description {
   font-size: 1.1rem;
   color: #666;
+  margin-top: 1.5rem;
+  font-weight: 500;
 }
 
-.link-primary {
-  color: var(--primary-orange);
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
-.link-primary:hover {
-  color: var(--primary-red);
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 968px) {
+@media (max-width: 768px) {
   .page-title {
     font-size: 2.5rem;
   }
-  
-  .contact-grid {
+
+  .contact-simple {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
-  
-  .contact-form-wrapper {
-    padding: 2rem;
+
+  .contact-card {
+    padding: 3rem 2rem;
   }
-  
-  .coverage-info {
-    grid-template-columns: 1fr;
+
+  .contact-icon-large {
+    font-size: 4rem;
   }
 }
 </style>

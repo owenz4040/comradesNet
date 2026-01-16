@@ -18,7 +18,7 @@
             <a href="https://tiktok.com" target="_blank" class="social-icon tiktok">
               <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" class="social-icon-img" />
             </a>
-            <a href="https://wa.me/254727895108" target="_blank" class="social-icon whatsapp">
+            <a href="https://wa.me/254793590575" target="_blank" class="social-icon whatsapp">
               <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="social-icon-img" />
             </a>
           </div>
@@ -48,16 +48,13 @@
           <h3>Contact</h3>
           <ul>
             <li>
-              <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=40&h=40&fit=crop" alt="Phone" class="contact-icon" />
-              +254 727 895 108
+              📞 0793590575
             </li>
             <li>
-              <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=40&h=40&fit=crop" alt="Phone" class="contact-icon" />
-              +254 703 551 813
+              📞 +254 703 551 813
             </li>
             <li>
-              <img src="https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=40&h=40&fit=crop" alt="Email" class="contact-icon" />
-              info@comradeswifi.co.ke
+              📧 support@comradeswifi.net
             </li>
             <li>
               <img src="https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?w=40&h=40&fit=crop" alt="Location" class="contact-icon" />

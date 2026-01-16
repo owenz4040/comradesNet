@@ -10,6 +10,7 @@
         <div class="nav-links" :class="{ active: mobileMenuOpen }">
           <router-link to="/" @click="closeMobileMenu">Home</router-link>
           <router-link to="/plans" @click="closeMobileMenu">Plans</router-link>
+          <router-link to="/entertainment" @click="closeMobileMenu">Entertainment</router-link>
           <router-link to="/contact" @click="closeMobileMenu">Contact</router-link>
           
           <template v-if="isLoggedIn">
@@ -138,15 +139,31 @@ export default {
 
 <style scoped>
 .navbar {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.3s ease;
   border-bottom: 1px solid rgba(220, 20, 60, 0.1);
+  position: relative;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at 0% 0%, rgba(220, 20, 60, 0.15) 0px, transparent 50%),
+              radial-gradient(at 100% 0%, rgba(0, 102, 204, 0.15) 0px, transparent 50%);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .nav-content {
@@ -163,19 +180,41 @@ export default {
   align-items: center;
   gap: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
+  position: relative;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(220, 20, 60, 0.1), transparent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+.logo:hover::before {
+  transform: scale(1.5);
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.05);
 }
 
 .logo-image {
-  height: 50px;
+  height: 55px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+  filter: drop-shadow(3px 3px 6px rgba(0, 0, 0, 0.15));
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logo-image {
+  filter: drop-shadow(4px 4px 8px rgba(220, 20, 60, 0.3));
+  transform: rotate(-5deg);
 }
 
 .logo-text {
