@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Immediate domain redirect for old domain -->
+  <script>
+    (function() {
+      var hostname = window.location.hostname;
+      if (hostname === 'colinowen.online' || hostname === 'www.colinowen.online') {
+        var newUrl = 'https://comradeswifi.net' + window.location.pathname + window.location.search + window.location.hash;
+        window.location.replace(newUrl);
+      }
+    })();
+  </script>
+  
   <title>Comrades WiFi - Fast & Reliable Internet in Kenya</title>
   
   <!-- Canonical URL - tells search engines the correct domain -->
