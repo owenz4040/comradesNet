@@ -96,10 +96,10 @@ export default {
   },
   mounted() {
     this.fetchMatches()
-    // Update every 30 seconds
+    // Update every 15 seconds for live sports updates
     this.updateInterval = setInterval(() => {
       this.fetchMatches()
-    }, 30000)
+    }, 15000)
   },
   beforeUnmount() {
     if (this.updateInterval) {
@@ -116,12 +116,12 @@ export default {
         const today = new Date()
         const dateStr = today.toISOString().split('T')[0]
         
-        // Fetching from multiple leagues
+        // Fetching Premier League, Formula 1, Basketball (NBA), and Boxing
         const promises = [
-          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4328`), // Premier League
-          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4387`), // La Liga
-          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4391`), // Bundesliga
-          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4424`) // Champions League
+          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4328`), // English Premier League
+          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4370`), // Formula 1
+          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4387`), // NBA Basketball
+          fetch(`https://www.thesportsdb.com/api/v1/json/${apiKey}/eventsnextleague.php?id=4443`) // Boxing
         ]
         
         const responses = await Promise.all(promises)
@@ -178,7 +178,9 @@ export default {
         'Tennis': '🎾',
         'Cricket': '🏏',
         'Motorsport': '🏎️',
+        'Formula 1': '🏎️',
         'Fighting': '🥊',
+        'Boxing': '🥊',
         'Rugby': '🏉'
       }
       return icons[sport] || '⚽'
@@ -691,33 +693,64 @@ export default {
 /* Responsive */
 @media (max-width: 768px) {
   .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem;
   }
   
   .title-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   
   .sports-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    padding: 0 0.5rem;
   }
   
   .match-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
+  }
+  
+  .team-logo {
+    width: 35px;
+    height: 35px;
   }
   
   .team-name {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    max-width: 100px;
+  }
+  
+  .league-name {
+    font-size: 0.75rem;
+  }
+  
+  .match-time {
+    font-size: 0.75rem;
   }
   
   .match-footer {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
+    align-items: stretch;
+  }
+  
+  .match-venue {
+    font-size: 0.85rem;
   }
   
   .watch-btn {
     width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+  
+  .btn-view-all {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
   }
 }
 </style>

@@ -293,6 +293,47 @@ export default {
   font-size: 1.05rem;
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .entertainment-hero {
+    padding: 4rem 0 3rem;
+  }
+  
+  .hero-title {
+    font-size: 2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .stat-card {
+    padding: 1rem !important;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem !important;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  .feature-box {
+    padding: 1.5rem !important;
+  }
+  
+  .feature-box h3 {
+    font-size: 1.2rem !important;
+  }
+}
+
 /* CTA Section */
 .entertainment-cta {
   padding: 6rem 0;

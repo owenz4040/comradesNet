@@ -584,29 +584,76 @@ export default {
 
 @media (max-width: 768px) {
   .movies-section {
-    padding: 4rem 0;
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+  
+  .section-subtitle {
+    font-size: 0.95rem !important;
   }
   
   .movie-card {
     flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .movie-poster {
+    height: auto;
+    aspect-ratio: 2/3;
+  }
+  
+  .movie-poster img {
+    object-fit: cover;
+  }
+  
+  .movie-info h3 {
+    font-size: 1rem;
+  }
+  
+  .movie-year {
+    font-size: 0.85rem;
   }
   
   .carousel-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.3rem;
+  }
+  
+  .carousel-btn.prev {
+    left: 5px;
+  }
+  
+  .carousel-btn.next {
+    right: 5px;
   }
   
   .update-badge {
-    top: 80px;
+    top: 70px;
     right: 1rem;
-    font-size: 0.85rem;
-    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
   }
   
   .last-update {
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .carousel-dots {
+    margin-top: 1.5rem;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
   }
 }
 </style>
