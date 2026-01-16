@@ -6,7 +6,7 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-bg">
-        <div class="particle" v-for="n in 20" :key="n" :style="getParticleStyle(n)"></div>
+        <div class="particle" v-for="n in particleCount" :key="n" :style="getParticleStyle(n)"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -135,6 +135,7 @@ export default {
   },
   data() {
     return {
+      particleCount: window.innerWidth > 768 ? 20 : 5,
       features: [
         {
           icon: '/images/fast.png',
@@ -220,6 +221,7 @@ export default {
   right: -400px;
   animation: float 8s ease-in-out infinite, pulse 4s ease-in-out infinite;
   filter: blur(100px);
+  will-change: transform;
 }
 
 .hero-bg::after {
@@ -233,6 +235,15 @@ export default {
   left: -350px;
   animation: float 10s ease-in-out infinite reverse, pulse 5s ease-in-out infinite;
   filter: blur(100px);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .hero-bg::before,
+  .hero-bg::after {
+    animation: none;
+    opacity: 0.3;
+  }
 }
 
 .particle {
@@ -241,6 +252,14 @@ export default {
   opacity: 0.8;
   animation: float-particle 15s ease-in-out infinite;
   box-shadow: 0 0 10px currentColor;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .particle {
+    animation: float-particle 20s ease-in-out infinite;
+    opacity: 0.5;
+  }
 }
 
 @keyframes float-particle {

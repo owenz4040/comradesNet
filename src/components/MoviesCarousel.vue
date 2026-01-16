@@ -95,10 +95,10 @@ export default {
     this.updateResponsiveView()
     window.addEventListener('resize', this.updateResponsiveView)
     
-    // Check for new content every 8 seconds for real-time updates
+    // Check for new content every 30 seconds for real-time updates (optimized for mobile)
     this.updateCheckInterval = setInterval(() => {
       this.fetchTrendingContent(true)
-    }, 8000)
+    }, 30000)
   },
   beforeUnmount() {
     this.stopAutoPlay()

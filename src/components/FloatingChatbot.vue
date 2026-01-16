@@ -1337,6 +1337,7 @@ IMPORTANT: Format your responses with HTML tags like <strong> and <br> for bette
   .chat-icon-btn {
     width: 60px;
     height: 60px;
+    animation: none; /* Disable pulse animation on mobile */
   }
   
   .chat-icon-btn .icon {
@@ -1348,6 +1349,25 @@ IMPORTANT: Format your responses with HTML tags like <strong> and <br> for bette
     height: calc(100vh - 140px);
     bottom: 85px;
     right: -10px;
+  }
+  
+  .chat-label {
+    display: none; /* Hide label on mobile to save space */
+  }
+  
+  /* Disable heavy animations on mobile */
+  .message-bot,
+  .message-user {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .option-btn {
+    transition: transform 0.2s ease;
+  }
+  
+  .option-btn:hover {
+    transform: none;
   }
 }
 </style>

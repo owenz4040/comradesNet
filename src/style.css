@@ -429,4 +429,30 @@ h1, h2, h3, h4, h5, h6 {
     padding: 12px 25px;
     font-size: 14px;
   }
+  
+  /* Mobile Performance Optimizations */
+  * {
+    /* Disable expensive effects on mobile */
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    will-change: auto;
+  }
+  
+  /* Simplify animations on mobile */
+  .animate-fadeIn,
+  .animate-slideInLeft,
+  .animate-slideInRight,
+  .animate-zoomIn {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  /* Reduce shadow complexity on mobile */
+  .shadow-sm,
+  .shadow-md,
+  .shadow-lg,
+  .shadow-xl {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
 }
