@@ -1,0 +1,10 @@
+# robots.txt for comradeswifi.net
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://comradeswifi.net/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
