@@ -1,8 +1,8 @@
-# Domain redirects - must come first
-http://colinowen.online/*    https://comradeswifi.net/:splat    301!
-https://colinowen.online/*   https://comradeswifi.net/:splat    301!
-http://www.colinowen.online/*    https://comradeswifi.net/:splat    301!
-https://www.colinowen.online/*   https://comradeswifi.net/:splat    301!
+# Redirect old domain to new domain - exact URL preservation
+https://colinowen.online/* https://comradeswifi.net/:splat 301!
+http://colinowen.online/* https://comradeswifi.net/:splat 301!
+https://www.colinowen.online/* https://comradeswifi.net/:splat 301!
+http://www.colinowen.online/* https://comradeswifi.net/:splat 301!
 
-# SPA fallback for comradeswifi.net - must be last
+# SPA fallback for the new domain only
 /*    /index.html   200
