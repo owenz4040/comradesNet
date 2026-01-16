@@ -1,6 +1,2 @@
-# Redirect old domain to new domain
-https://colinowen.online/* https://comradeswifi.net/:splat 301!
-https://www.colinowen.online/* https://comradeswifi.net/:splat 301!
-
-# SPA fallback
-/* /index.html 200
+# SPA fallback - handle all routes
+/*    /index.html   200
