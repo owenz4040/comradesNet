@@ -170,9 +170,7 @@ IMPORTANT: Format your responses with HTML tags like <strong> and <br> for bette
 
     // Welcome message after 2 seconds
     setTimeout(() => {
-      this.addBotMessage('👋 Hi! I\'m <strong>Comrade Chatbot</strong>, powered by AI! 🤖<br><br>I can help you with internet plans, suggest movies & sports, and answer questions about Comrades WiFi!<br><br>' + 
-        (this.openaiApiKey === 'sk-or-v1-free-demo-key' ? '💡 <em>Using free AI demo - for unlimited access, you can add your OpenRouter API key!</em><br><br>' : '') +
-        'What would you like to know?', [
+      this.addBotMessage('👋 Hi! I\'m <strong>Comrade Chatbot</strong>, powered by AI! 🤖<br><br>I can help you with internet plans, suggest movies & sports, and answer questions about Comrades WiFi!<br><br>What would you like to know?', [
         { label: 'Internet Plans', action: 'plans_info', emoji: '📊' },
         { label: 'Movies & Sports', action: 'surprise', emoji: '🎬' },
         { label: 'Coverage Areas', action: 'coverage_info', emoji: '🗺️' },
